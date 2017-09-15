@@ -1,0 +1,15 @@
+#Introduction
+NAPALM is a network automation abstraction layer that supports multi-vendors
+NAPALM can interact with non-API aware devices (such as IOS) using Netmiko
+More info&documentation about NAPLAM @ https://napalm.readthedocs.io/en/latest
+
+#Installing NAPALM
+apt-get update
+apt-get install python -y
+apt-get install build-essential libssl-dev libffi-dev -y
+apt-get install python-pip -y
+pip install cryptography
+pip install netmiko
+pip install napalm
+
+
