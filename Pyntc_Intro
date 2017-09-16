@@ -1,0 +1,15 @@
+Pyntc = Python network to code
+Similar to Napalm, a multivednor library. uses API when possible and netmiko for legacy devices (ios). can be used aalong with Napalm
+https://github.com/networktocode/pyntc
+https://github.com/networktocode
+
+#Installing pyntc
+apt-get update
+apt-get install python -y
+apt-get install build-essential libssl-dev libffi-dev -y
+apt-get install python-pip -y
+pip install cryptography
+pip install netmiko
+pip install pyntc
+
+#Don't name a script pyntc.py. it will break things :)
