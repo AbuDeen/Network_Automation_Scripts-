@@ -1,0 +1,11 @@
+GNS3 Putty out of the box settings: putty.exe -telnet %h %p -wt "%d" -gns3 5 -skin 3
+
+#Ubuntu eth0 config file
+/etc/network/interfaces
+
+#To make a script executable (in Linux/Unix), add the following line to the beginning :
+	#!/usr/bin/env python
+You also need to run this command to change permission on it to become executable:
+ Chmod +x ./SCRIPT_NAME
+You will need to enter ./SCRIPT_NAME to run script
+Local directory: use ./FILE_NAME
