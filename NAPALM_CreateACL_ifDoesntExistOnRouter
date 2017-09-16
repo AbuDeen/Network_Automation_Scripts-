@@ -9,7 +9,7 @@ iosvl2.load_merge_candidate(filename='ACL1.cfg')
  
 diffs = iosvl2.compare_config() #also check napalm config roll back function
 if len(diffs) > 0:
-    print(diffs)
+    print(diffs) #you could stop your script here and just use it for auditing / dont commit any changes 
     iosvl2.commit_config()
 else:
     print('No changes required.')
