@@ -1,0 +1,45 @@
+import json
+from napalm import get_network_driver
+ 
+devicelist = ['192.168.122.72',
+           '192.168.122.73'
+           ]
+ 
+for ip_address in devicelist:
+    print ("Connecting to " + str(ip_address))
+    driver = get_network_driver('ios')
+    iosv = driver(ip_address, 'david', 'cisco')
+    iosv.open()
+    iosv.load_merge_candidate(filename='ACL1.cfg')
+    diffs = iosv.compare_config()
+    if len(diffs) > 0:
+        print(diffs)
+        iosv.commit_config()
+    else:
+        print('No ACL changes required.')
+        iosv.discard_config()
+ 
+    iosv.load_merge_candidate(filename='ospf1.cfg')
+ 
+    diffs = iosv.compare_config()
+    if len(diffs) > 0:
+        print(diffs)
+        iosv.commit_config()
+    else:
+        print('No OSPF changes required.')
+        iosv.discard_config()
+ 
+    iosv.close()
+    
+#ACL1.cfg
+access-list 100 permit icmp any any
+access-list 100 permit tcp any any eq domain
+access-list 100 permit tcp any any eq www
+access-list 100 permit tcp any any eq 443
+
+#OSPF1.cfg
+router ospf 1
+ network 10.1.1.0 0.0.0.255 area 0
+ network 10.1.2.0 0.0.0.255 area 2
+ network 10.1.3.0 0.0.0.255 area 3 
+ 
