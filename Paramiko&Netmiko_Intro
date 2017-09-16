@@ -1,0 +1,15 @@
+#Installing Paramiko/Netmiko:
+		apt-get update
+		apt-get install python -y
+		apt-get install build-essential libssl-dev libffi-dev -y
+		apt-get install python-pip -y
+		pip install --upgrade pip 
+		pip install cryptography
+		pip install paramiko
+		 
+		Or to install Netmiko
+pip install netmiko
+
+#Netmiko is Service abstraction library
+https://github.com/ktbyers/netmiko
+Check documentation for supported devices and get the correct dictionary based on device type
